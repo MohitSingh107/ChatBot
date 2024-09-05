@@ -1,0 +1,152 @@
+:host {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #f8f9fa;
+  margin: 0;
+}
+
+.chat-container {
+  width: 800px;
+  height: 500px;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.chat-header {
+  background-color: #007bff;
+  color: white;
+  padding: 15px;
+  text-align: center;
+}
+
+.chat-messages {
+  padding: 20px;
+  flex-grow: 1;
+  overflow-y: auto;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+  display: flex;
+  flex-direction: column;
+}
+
+.message {
+  margin-bottom: 16px;
+  padding: 10px 20px;
+  border-radius: 20px;
+  max-width: 70%;
+}
+
+.sent {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+}
+
+.received {
+  background-color: #f1f3f5;
+  color: #343a40;
+  align-self: flex-start;
+}
+
+.typing-indicator {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 4px;
+  animation: typing 1.5s infinite ease-in-out;
+}
+
+.dot:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.dot:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+@keyframes typing {
+  0% {
+      opacity: 0.4;
+      transform: translateY(0);
+  }
+  50% {
+      opacity: 1;
+      transform: translateY(-8px);
+  }
+  100% {
+      opacity: 0.4;
+      transform: translateY(0);
+  }
+}
+
+.chat-input {
+  display: flex;
+  border-top: 1px solid #e0e0e0;
+  padding: 10px;
+}
+
+#chat-input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 5px 0 0 5px;
+  outline: none;
+  font-size: 16px;
+}
+
+#send-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 0 5px 5px 0;
+  transition: background-color 0.2s;
+}
+
+#send-btn:hover {
+  background-color: #0056b3;
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8px;
+}
+
+.option {
+  background-color: #e9ecef;
+  color: #495057;
+  padding: 8px 15px;
+  border-radius: 20px;
+  margin: 4px 0;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  max-width: fit-content;
+}
+
+.option:hover {
+  background-color: #dee2e6;
+}
+
+.sent .option {
+  background-color: #0056b3;
+  color: white;
+}
+
+.sent .option:hover {
+  background-color: #003d82;
+}

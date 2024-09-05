@@ -1,0 +1,26 @@
+<div class="chat-container">
+  <div class="chat-header">
+    <h2>Chat Bot</h2>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <ng-container *ngFor="let message of messages">
+      <div class="message" [ngClass]="{'received': message.sender === 'bot', 'sent': message.sender === 'user'}">
+        <span>{{ message.text }}</span>
+      </div>
+      <div *ngIf="message.options" class="message">
+        <div class="options">
+          <span *ngFor="let option of message.options" (click)="handleOption(option)" class="option">{{ option }}</span>
+        </div>
+      </div>
+    </ng-container>
+    <div class="typing-indicator" *ngIf="isTyping">
+      <div class="dot"></div>
+      <div class="dot"></div>
+      <div class="dot"></div>
+    </div>
+  </div>
+  <div class="chat-input">
+    <input type="text" id="chat-input" placeholder="Type your message..." [(ngModel)]="prompt" />
+    <button id="send-btn" (click)="sendData()"><i class="fa-regular fa-paper-plane"></i></button>
+  </div>
+</div>
